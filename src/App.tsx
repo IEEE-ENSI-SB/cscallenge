@@ -1,5 +1,17 @@
+// App.tsx
 import React, { useState } from 'react';
-import { Shield, Users, Bot, Network, Lock, Mail, FileCode, Search, Target, BarChart2 } from 'lucide-react';
+import {
+  Shield,
+  Activity,
+  Wifi,
+  AlertTriangle,
+  Plug,
+  Cpu,
+  Users,
+  Database,
+  MessageSquare,
+  Share2,
+} from 'lucide-react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
@@ -9,16 +21,13 @@ const App: React.FC = () => {
 
   const menuItems = [
     { id: 'overview', icon: Shield, label: 'Overview' },
-    { id: 'threats', icon: Shield, label: 'Threat Detection' },
-    { id: 'user-behavior', icon: Users, label: 'User Behavior' },
-    { id: 'ai-agents', icon: Bot, label: 'AI Agents' },
-    { id: 'network', icon: Network, label: 'Network Security' },
-    { id: 'data-protection', icon: Lock, label: 'Data Protection' },
-    { id: 'email-security', icon: Mail, label: 'Email Security' },
-    { id: 'application-security', icon: FileCode, label: 'Application Security' },
-    { id: 'vulnerability', icon: Search, label: 'Vulnerability Management' },
-    { id: 'red-blue-team', icon: Target, label: 'Red & Blue Team' },
-    { id: 'advanced-analytics', icon: BarChart2, label: 'Advanced Analytics' },
+    { id: 'threat-monitoring', icon: AlertTriangle, label: 'Threat Monitoring' },
+    { id: 'data-collection', icon: Database, label: 'Data Collection' },
+    { id: 'traffic-analytics', icon: Wifi, label: 'Traffic Analytics' },
+    { id: 'ai-models', icon: Cpu, label: 'AI Models' },
+    { id: 'incident-response', icon: Users, label: 'Incident Response' },
+    { id: 'collaboration', icon: Share2, label: 'Collaboration' },
+    { id: 'security-integrations', icon: Plug, label: 'Security Integrations' },
   ];
 
   return (

@@ -5,25 +5,25 @@ import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler,
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
-const AIAgents: React.FC = () => {
+const AutoMLDashboard: React.FC = () => {
   const [chartData, setChartData] = useState({
-    labels: ['Threat Intelligence', 'Automated Response', 'Vulnerability Management', 'Incident Response', 'Security Orchestration'],
+    labels: ['Data Preprocessing', 'Feature Engineering', 'Model Optimization', 'Hyperparameter Tuning', 'Deployment Readiness'],
     datasets: [
       {
-        label: 'AI Agent Performance',
-        data: [85, 92, 78, 88, 95],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        label: 'AutoML Performance',
+        data: [78, 85, 92, 88, 95],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 2,
       },
     ],
   });
 
   const [stats, setStats] = useState({
-    activeAgents: 24,
-    threatsMitigated: 187,
-    responseTime: 1.2,
-    aiModels: 8,
+    activePipelines: 16,
+    modelsTrained: 142,
+    avgTrainingTime: 2.5,
+    productionModels: 6,
   });
 
   useEffect(() => {
@@ -38,10 +38,10 @@ const AIAgents: React.FC = () => {
       }));
 
       setStats({
-        activeAgents: Math.floor(Math.random() * 10) + 20,
-        threatsMitigated: Math.floor(Math.random() * 50) + 150,
-        responseTime: (Math.random() * 2 + 0.5).toFixed(1),
-        aiModels: Math.floor(Math.random() * 3) + 7,
+        activePipelines: Math.floor(Math.random() * 5) + 15,
+        modelsTrained: Math.floor(Math.random() * 40) + 120,
+        avgTrainingTime: (Math.random() * 2 + 1.5).toFixed(1),
+        productionModels: Math.floor(Math.random() * 2) + 5,
       });
     }, 5000);
 
@@ -53,11 +53,11 @@ const AIAgents: React.FC = () => {
     scales: {
       r: {
         angleLines: {
-          display: false
+          display: false,
         },
         suggestedMin: 0,
-        suggestedMax: 100
-      }
+        suggestedMax: 100,
+      },
     },
     plugins: {
       legend: {
@@ -65,14 +65,14 @@ const AIAgents: React.FC = () => {
       },
       title: {
         display: true,
-        text: 'AI Agent Performance Metrics',
+        text: 'AutoML Performance Metrics',
       },
     },
   };
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-6">AI Cybersecurity Agents</h2>
+      <h2 className="text-2xl font-bold mb-6">AutoML System Overview</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <Radar data={chartData} options={chartOptions} />
@@ -81,34 +81,34 @@ const AIAgents: React.FC = () => {
           <div className="bg-white p-4 rounded-lg shadow-md">
             <div className="flex items-center justify-between mb-2">
               <Bot className="text-blue-500" size={24} />
-              <span className="text-sm font-semibold text-gray-500">Active AI Agents</span>
+              <span className="text-sm font-semibold text-gray-500">Active Pipelines</span>
             </div>
-            <p className="text-2xl font-bold">{stats.activeAgents}</p>
-            <p className="text-sm text-gray-500">Monitoring systems</p>
+            <p className="text-2xl font-bold">{stats.activePipelines}</p>
+            <p className="text-sm text-gray-500">Running Automations</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
             <div className="flex items-center justify-between mb-2">
               <Shield className="text-green-500" size={24} />
-              <span className="text-sm font-semibold text-gray-500">Threats Mitigated</span>
+              <span className="text-sm font-semibold text-gray-500">Models Trained</span>
             </div>
-            <p className="text-2xl font-bold">{stats.threatsMitigated}</p>
+            <p className="text-2xl font-bold">{stats.modelsTrained}</p>
             <p className="text-sm text-gray-500">This month</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
             <div className="flex items-center justify-between mb-2">
               <Zap className="text-yellow-500" size={24} />
-              <span className="text-sm font-semibold text-gray-500">Response Time</span>
+              <span className="text-sm font-semibold text-gray-500">Avg Training Time</span>
             </div>
-            <p className="text-2xl font-bold">{stats.responseTime}s</p>
-            <p className="text-sm text-gray-500">Average</p>
+            <p className="text-2xl font-bold">{stats.avgTrainingTime}s</p>
+            <p className="text-sm text-gray-500">Per Model</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
             <div className="flex items-center justify-between mb-2">
               <GitBranch className="text-purple-500" size={24} />
-              <span className="text-sm font-semibold text-gray-500">AI Models</span>
+              <span className="text-sm font-semibold text-gray-500">Production Models</span>
             </div>
-            <p className="text-2xl font-bold">{stats.aiModels}</p>
-            <p className="text-sm text-gray-500">In production</p>
+            <p className="text-2xl font-bold">{stats.productionModels}</p>
+            <p className="text-sm text-gray-500">Currently Deployed</p>
           </div>
         </div>
       </div>
@@ -116,4 +116,4 @@ const AIAgents: React.FC = () => {
   );
 };
 
-export default AIAgents;
+export default AutoMLDashboard;
